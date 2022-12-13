@@ -67,12 +67,10 @@ fun performMove(input: String, crates: List<ArrayDeque<Char>>) {
 }
 
 fun performUpdatedMove(input: String, crates: List<ArrayDeque<Char>>) {
-    var index = input.indexOf(' ') + 1
-    val numCrates = input.substring(index, index + input.substring(index).indexOf(' ')).toInt()
-    index = input.indexOf(' ', input.indexOf("from")) + 1
-    val src = input[index].digitToInt() - 1
-    index = input.indexOf(' ', input.indexOf("to")) + 1
-    val dst = input[index].digitToInt() -1
+    val inputs = input.split(" ")
+    val numCrates = inputs[1].toInt()
+    val src = inputs[3].toInt() - 1
+    val dst = inputs[5].toInt() -1
 
     val tmpCrates = ArrayDeque<Char>()
     for (i in 1..numCrates) {
